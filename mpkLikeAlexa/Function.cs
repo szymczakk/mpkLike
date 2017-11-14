@@ -20,12 +20,15 @@ namespace mpkLikeAlexa
 {
     public class Function
     {
-        private string APIURL = "https://3yrnvbq3nc.execute-api.eu-central-1.amazonaws.com/dev";
+        private string APIURL = "";
         private ILambdaLogger _logger;
 
         public SkillResponse FunctionHandler(SkillRequest input, ILambdaContext context)
         {
+            APIURL = System.Environment.GetEnvironmentVariable("APIURL");
             _logger = context.Logger;
+
+            _logger.LogLine("APIURL: "+ APIURL);
 
             switch (input.Request)
             {
