@@ -60,20 +60,20 @@ namespace mpkLikeAlexa
             var bussesResponse = client.GetAsync(this.APIURL).Result.Content.ReadAsStringAsync().Result;
             _logger.LogLine("Response:" + bussesResponse);
 
-            var busses = JsonConvert.DeserializeObject<ApiResponseModel>(bussesResponse).body;
+            var bussesData = GetBusResponseModel(bussesResponse);
 
-            _logger.LogLine("after: " + JsonConvert.SerializeObject(busses));
+            _logger.LogLine("after: " + JsonConvert.SerializeObject(bussesData));
 
-            if (busses.BusCount == 0)
+            if (bussesData.BusCount == 0)
             {
                 sb.AppendLine("Sorry, but you missed your last bus. You have to sleep at work");
             }
             else
             {
                 sb.Append("You have ");
-                sb.Append(busses.BusCount);
+                sb.Append(bussesData.BusCount);
                 sb.Append(" left. The next one is on ");
-                sb.Append(busses.NextBusDates.First());
+                sb.Append(bussesData.NextBusDates.First());
             }
 
             var response = ResponseBuilder.Tell(new PlainTextOutputSpeech()
@@ -82,6 +82,15 @@ namespace mpkLikeAlexa
             });
 
             return response;
+        }
+
+        private static BusResponseModel GetBusResponseModel(string bussesApiResponse)
+        {
+            var bussesResponseModel = JsonConvert.DeserializeObject<ApiResponseModel>(bussesApiResponse);
+            var bussesData =
+                JsonConvert.DeserializeObject<BusResponseModel>(
+                    bussesResponseModel.body);
+            return bussesData;
         }
 
         private SkillResponse HandleLaunch(LaunchRequest request, ILambdaContext context)
