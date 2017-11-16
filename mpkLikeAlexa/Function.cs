@@ -98,11 +98,17 @@ namespace mpkLikeAlexa
 
         private SkillResponse HandleLaunch(LaunchRequest request, ILambdaContext context)
         {
-            var response = ResponseBuilder.Tell(new PlainTextOutputSpeech()
+            var response = ResponseBuilder.Ask(new PlainTextOutputSpeech()
             {
                 Text = "Hi! What line do you want to ask for?"
+            }, new Reprompt()
+            {
+               OutputSpeech = new PlainTextOutputSpeech()
+               {
+                   Text = "What line do you want to ask for?"
+               }
             });
-
+            
             return response;
         }
     }
