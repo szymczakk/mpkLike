@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mpkLike", "mpkLike\mpkLike.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mpkLikeAlexa", "mpkLikeAlexa\mpkLikeAlexa.csproj", "{07306AF2-4280-4A65-AA8D-48F3B109F73D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "presentationAlexa", "presentationAlexa\presentationAlexa.csproj", "{335CD99B-F589-42D7-9A71-5431E5D345C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{07306AF2-4280-4A65-AA8D-48F3B109F73D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07306AF2-4280-4A65-AA8D-48F3B109F73D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07306AF2-4280-4A65-AA8D-48F3B109F73D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{335CD99B-F589-42D7-9A71-5431E5D345C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{335CD99B-F589-42D7-9A71-5431E5D345C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{335CD99B-F589-42D7-9A71-5431E5D345C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{335CD99B-F589-42D7-9A71-5431E5D345C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
